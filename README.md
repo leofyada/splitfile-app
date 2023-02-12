@@ -17,7 +17,7 @@ referentes à sua região.
 
 ## Como utilizar a aplicação?
 
-1. Acesse o programa por meio do link: https://diretoriaensino.herokuapp.com/. 
+1. Acesse o programa por meio do link: https://leofyada-de-heroku-programa-de-lsy865.streamlit.app. 
 2. Clique no botão "Browse files" e selecione o arquivo que deseja
    utilizar em formato .csv ou .xlsx (a coluna do nome da DE deve
    ser a primeira da planilha importada);
