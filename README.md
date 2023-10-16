@@ -2,7 +2,7 @@
 
 ## What is Streamlit?
 
-Streamlit is an open-source Python library that enables you to create web applications.
+[Streamlit](https://streamlit.io) is an open-source Python library that enables you to create web applications. 
 
 ## Description
 
