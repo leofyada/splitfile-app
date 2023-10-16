@@ -14,7 +14,7 @@ application to automatize this task.
 
 ## How can you use this application?
 
-1. Access the application here[https://leofyada-de-heroku-programa-de-lsy865.streamlit.app].
+1. Access the application [here](https://leofyada-de-heroku-programa-de-lsy865.streamlit.app).
 2. Click on "Browse files" and select the file you want to split (choose a .csv or .xlsx file with the first column being the DE identification). 
 3. Choose the final name for each file. It starts with the name of the first column.    
 
