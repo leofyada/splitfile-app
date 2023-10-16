@@ -6,11 +6,7 @@
 
 ## Description
 
-The São Paulo State Department of Education (SEDUC-SP) has 91 regional administrative units (DEs),
-which are responsible for managing all the state public schools. One of the challenges faced by SEDUC-SP
-is that the IT team usually creates files with data per DE in one single file. In order to send the 
-data separatly to each DE, it was necessary to split into 91 files. In this context, I created this
-application to automatize this task.
+The São Paulo State Department of Education (SEDUC-SP) has 91 regional administrative units (DEs), which are responsible for managing all the state public schools. One of the challenges faced by SEDUC-SP is that the IT team usually creates files with data per DE in one single file. In order to send the data separatly to each DE, it was necessary to split into 91 files. In this context, I created this application to automatize this task.
 
 ## How can you use this application?
 
