@@ -13,7 +13,7 @@ st.text("Faça o upload do arquivo. "
 arquivo = st.file_uploader("Upload do arquivo", type=["csv", "xlsx"])
 if arquivo is not None:
     # Realizando a leitura do arquivo excel e atribuindo à variável "arquivo_lido"
-    arquivo_lido = pd.read_excel(arquivo)
+    arquivo_lido = pd.read_excel(arquivo, engine='openpyxl')
     # Renomeando a primeira coluna para "NM_DIRETORIA"
     arquivo_lido.rename(columns={list(arquivo_lido)[0]: "NM_DIRETORIA"}, inplace=True)
     # Criando um DataFrame com apenas as Diretorias de Ensino
