@@ -69,7 +69,7 @@ for arquivo in os.listdir("/tmp"):
         arquivo_pandas = pd.read_excel("/tmp/"+arquivo, engine='openpyxl', sheet_name=0)
         arquivo_completo = pd.concat([arquivo_completo, arquivo_pandas])
 
-arquivo_completo.drop(arquivo_completo.columns[len(arquivo_completo.columns)-1], axis=1, inplace=True)
+#arquivo_completo.drop(arquivo_completo.columns[len(arquivo_completo.columns)-1], axis=1, inplace=True)
 
 buffer = io.BytesIO()
 with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
