@@ -78,7 +78,7 @@ with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
     writer.close()
 
     download = st.download_button(
-        label="Download data as Excel",
+        label="Download do arquivo final",
         data=buffer,
         file_name='arquivo_completo.xlsx',
         mime='application/vnd.ms-excel'
