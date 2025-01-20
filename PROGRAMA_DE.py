@@ -4,11 +4,15 @@ import streamlit as st
 import pandas as pd
 from zipfile import ZipFile
 import openpyxl
+import os
+import io
+from xlsxwriter import Workbook
+
 
 # Criando um título para o aplicativo
-st.title("Aplicativo para dividir dados por DE")
-# Orientações de como utilizar a ferramenta
-st.text("Faça o upload do arquivo. "
+st.title("Aplicativo para dividir ou juntar dados por DE")
+# Orientações de como utilizar a ferramenta (separar arquivos)
+st.text("1-) Faça o upload do arquivo. "
         "\n\nIMPORTANTE: a coluna com a DE deve ser a primeira da planilha.")
 # Atribuindo o arquivo a uma variável denominada "arquivo"
 arquivo = st.file_uploader("Upload do arquivo", type=["csv", "xlsx"])
@@ -47,3 +51,35 @@ if arquivo is not None:
         </a>"
     st.markdown(href, unsafe_allow_html=True)
 
+# Orientações de como utilizar a ferramenta (juntar arquivos)
+st.text("2-) Faça o upload da pasta em formato .zip com os arquivos que deseja juntar. "
+        "\n\nIMPORTANTE: os arquivos precisar ser em formato .csv ou .xlsx e precisam conter exatamente as mesmas colunas.")
+
+# Atribuindo o arquivo a uma variável denominada "arquivo"
+pasta = st.file_uploader("Upload da pasta", type=["zip"])
+
+if pasta is not None:
+    with ZipFile(pasta, 'r') as zObject:
+        zObject.extractall("/tmp")
+
+arquivo_completo = pd.DataFrame()
+
+for arquivo in os.listdir("/tmp"):
+    if arquivo.lower().endswith(('.xlsx', '.csv')):
+        arquivo_pandas = pd.read_excel("/tmp/"+arquivo, engine='openpyxl', sheet_name=0)
+        arquivo_completo = pd.concat([arquivo_completo, arquivo_pandas])
+
+arquivo_completo.drop(arquivo_completo.columns[len(arquivo_completo.columns)-1], axis=1, inplace=True)
+
+buffer = io.BytesIO()
+with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+    arquivo_completo.to_excel(writer, sheet_name='Sheet1', index=False)
+
+    writer.close()
+
+    download = st.download_button(
+        label="Download data as Excel",
+        data=buffer,
+        file_name='arquivo_completo.xlsx',
+        mime='application/vnd.ms-excel'
+    )
