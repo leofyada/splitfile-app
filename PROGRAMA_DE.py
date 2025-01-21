@@ -67,6 +67,7 @@ arquivo_completo = pd.DataFrame()
 for arquivo in os.listdir("/tmp"):
     if arquivo.lower().endswith(('.xlsx', '.csv')):
         arquivo_pandas = pd.read_excel("/tmp/"+arquivo, engine='openpyxl', sheet_name=0)
+        arquivo_pandas = arquivo_pandas[df.filter(regex='^(?!Unnamed)').columns]
         arquivo_completo = pd.concat([arquivo_completo, arquivo_pandas])
 
 #arquivo_completo.drop(arquivo_completo.columns[len(arquivo_completo.columns)-1], axis=1, inplace=True)
