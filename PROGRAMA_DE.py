@@ -53,7 +53,7 @@ if arquivo is not None:
 
 # Orientações de como utilizar a ferramenta (juntar arquivos)
 #st.text("2-) Faça o upload da pasta em formato .zip com os arquivos que deseja juntar. "
-        "\n\nIMPORTANTE: os arquivos precisar ser em formato .csv ou .xlsx e precisam conter exatamente as mesmas colunas.")
+#        "\n\nIMPORTANTE: os arquivos precisar ser em formato .csv ou .xlsx e precisam conter exatamente as mesmas colunas.")
 
 # Atribuindo o arquivo a uma variável denominada "arquivo"
 #pasta = st.file_uploader("Upload da pasta", type=["zip"])
