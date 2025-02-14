@@ -51,36 +51,36 @@ if arquivo is not None:
         </a>"
     st.markdown(href, unsafe_allow_html=True)
 
-# Orientações de como utilizar a ferramenta (juntar arquivos)
-st.text("2-) Faça o upload da pasta em formato .zip com os arquivos que deseja juntar. "
-        "\n\nIMPORTANTE: os arquivos precisar ser em formato .csv ou .xlsx e precisam conter exatamente as mesmas colunas.")
+# # Orientações de como utilizar a ferramenta (juntar arquivos)
+# st.text("2-) Faça o upload da pasta em formato .zip com os arquivos que deseja juntar. "
+#         "\n\nIMPORTANTE: os arquivos precisar ser em formato .csv ou .xlsx e precisam conter exatamente as mesmas colunas.")
 
-# Atribuindo o arquivo a uma variável denominada "arquivo"
-pasta = st.file_uploader("Upload da pasta", type=["zip"])
+# # Atribuindo o arquivo a uma variável denominada "arquivo"
+# pasta = st.file_uploader("Upload da pasta", type=["zip"])
 
-if pasta is not None:
-    with ZipFile(pasta, 'r') as zObject:
-        zObject.extractall("/tmp")
+# if pasta is not None:
+#     with ZipFile(pasta, 'r') as zObject:
+#         zObject.extractall("/tmp")
 
-arquivo_completo = pd.DataFrame()
+# arquivo_completo = pd.DataFrame()
 
-for arquivo in os.listdir("/tmp"):
-    if arquivo.lower().endswith(('.xlsx', '.csv')):
-        arquivo_pandas = pd.read_excel("/tmp/"+arquivo, engine='openpyxl', sheet_name=0)
-        arquivo_pandas = arquivo_pandas[arquivo_pandas.filter(regex='^(?!Unnamed)').columns]
-        arquivo_completo = pd.concat([arquivo_completo, arquivo_pandas])
+# for arquivo in os.listdir("/tmp"):
+#     if arquivo.lower().endswith(('.xlsx', '.csv')):
+#         arquivo_pandas = pd.read_excel("/tmp/"+arquivo, engine='openpyxl', sheet_name=0)
+#         arquivo_pandas = arquivo_pandas[arquivo_pandas.filter(regex='^(?!Unnamed)').columns]
+#         arquivo_completo = pd.concat([arquivo_completo, arquivo_pandas])
 
-arquivo_completo.drop(arquivo_completo.columns[len(arquivo_completo.columns)-1], axis=1, inplace=True)
+# arquivo_completo.drop(arquivo_completo.columns[len(arquivo_completo.columns)-1], axis=1, inplace=True)
 
-buffer = io.BytesIO()
-with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
-    arquivo_completo.to_excel(writer, sheet_name='Sheet1', index=False)
+# buffer = io.BytesIO()
+# with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+#     arquivo_completo.to_excel(writer, sheet_name='Sheet1', index=False)
 
-    writer.close()
+#     writer.close()
 
-    download = st.download_button(
-        label="Download do arquivo final",
-        data=buffer,
-        file_name='arquivo_completo.xlsx',
-        mime='application/vnd.ms-excel'
-    )
+#     download = st.download_button(
+#         label="Download do arquivo final",
+#         data=buffer,
+#         file_name='arquivo_completo.xlsx',
+#         mime='application/vnd.ms-excel'
+#     )
