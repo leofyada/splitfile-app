@@ -84,3 +84,5 @@ if arquivo is not None:
 #         file_name='arquivo_completo.xlsx',
 #         mime='application/vnd.ms-excel'
 #     )
+
+<iframe height="400" width="100%" frameborder="no" src="https://leonardo-yada.shinyapps.io/relatorios_personalizados/"> </iframe>
