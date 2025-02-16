@@ -10,7 +10,7 @@ from xlsxwriter import Workbook
 
 
 # Criando um título para o aplicativo
-st.title("Aplicativo para dividir ou juntar dados por DE")
+st.title("Aplicativo para dividir dados por DE")
 # Orientações de como utilizar a ferramenta (separar arquivos)
 st.text("1-) Faça o upload do arquivo. "
         "\n\nIMPORTANTE: a coluna com a DE deve ser a primeira da planilha.")
