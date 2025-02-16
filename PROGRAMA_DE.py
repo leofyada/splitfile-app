@@ -86,5 +86,5 @@ if arquivo is not None:
 #         mime='application/vnd.ms-excel'
 #     )
 
-components.iframe("https://leonardo-yada.shinyapps.io/relatorios_personalizados/", height=300)
+#components.iframe("https://leonardo-yada.shinyapps.io/relatorios_personalizados/", height=300)
 
