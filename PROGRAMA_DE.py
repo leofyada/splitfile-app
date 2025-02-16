@@ -7,6 +7,7 @@ import openpyxl
 import os
 import io
 from xlsxwriter import Workbook
+import streamlit.components.v1 as components
 
 
 # Criando um título para o aplicativo
@@ -85,4 +86,5 @@ if arquivo is not None:
 #         mime='application/vnd.ms-excel'
 #     )
 
-<iframe height="400" width="100%" frameborder="no" src="https://leonardo-yada.shinyapps.io/relatorios_personalizados/"> </iframe>
+components.iframe("https://leonardo-yada.shinyapps.io/relatorios_personalizados/", height=300)
+
