@@ -13,7 +13,7 @@ import streamlit.components.v1 as components
 # Criando um título para o aplicativo
 st.title("Aplicativo para dividir dados por DE")
 # Orientações de como utilizar a ferramenta (separar arquivos)
-st.text("1-) Faça o upload do arquivo. "
+st.text("Faça o upload do arquivo. "
         "\n\nIMPORTANTE: a coluna com a DE deve ser a primeira da planilha.")
 # Atribuindo o arquivo a uma variável denominada "arquivo"
 arquivo = st.file_uploader("Upload do arquivo", type=["csv", "xlsx"])
